@@ -2580,7 +2580,6 @@
 		}
 
 /* Tiles */
-
 	.tiles {
 		display: -moz-flex;
 		display: -webkit-flex;
@@ -2722,35 +2721,12 @@
 					line-height: 1.5;
 					margin-top: 0.35em;
 					opacity: 0;
+					overflow: hidden;
 				}
 
 					.tiles article > a .content > :last-child {
 						margin-bottom: 0;
 					}
-
-			.tiles article.style1 > .image:before {
-				background-color: #f2849e;
-			}
-
-			.tiles article.style2 > .image:before {
-				background-color: #7ecaf6;
-			}
-
-			.tiles article.style3 > .image:before {
-				background-color: #7bd0c1;
-			}
-
-			.tiles article.style4 > .image:before {
-				background-color: #c75b9b;
-			}
-
-			.tiles article.style5 > .image:before {
-				background-color: #ae85ca;
-			}
-
-			.tiles article.style6 > .image:before {
-				background-color: #8499e7;
-			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
 				-moz-transform: scale(1.1);
@@ -2769,7 +2745,7 @@
 				}
 
 			body:not(.is-touch) .tiles article:hover .content {
-				max-height: 15em;
+				max-height: 14.5em;
 				opacity: 1;
 			}
 
