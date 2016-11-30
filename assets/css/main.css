@@ -2745,7 +2745,7 @@
 				}
 
 			body:not(.is-touch) .tiles article:hover .content {
-				max-height: 14.5em;
+				max-height: 15em;
 				opacity: 1;
 			}
 
@@ -2824,6 +2824,12 @@
 				}
 
 		}
+
+	#load {
+		display:block;
+		margin:0 auto;
+		margin-top: 4em;
+	}
 
 /* Header */
 

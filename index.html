@@ -33,7 +33,6 @@
 										<li><a href="#menu">Menu</a></li>
 									</ul>
 								</nav>
-
 						</div>
 					</header>
 
@@ -42,10 +41,10 @@
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<!-- <li><a href="generic.html">Ipsum veroeros</a></li>
 							<li><a href="generic.html">Tempus etiam</a></li>
 							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="elements.html">Elements</a></li> -->
 						</ul>
 					</nav>
 
@@ -53,6 +52,7 @@
 					<div id="main">
 						<div class="inner">
 							<section class="tiles" id="instafeed"></section>
+							<button type="button" id="load">Load More</button>
 						</div>
 					</div>
 
@@ -60,8 +60,8 @@
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<h2>Get in touch</h2>
-								<form method="post" action="#">
+								<h2>Have a view that you want heard? Let us know!</h2>
+								<form method="post" action="">
 									<div class="field half first">
 										<input type="text" name="name" id="name" placeholder="Name" />
 									</div>
@@ -79,13 +79,8 @@
 							<section>
 								<h2>Follow</h2>
 								<ul class="icons">
-									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
 									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="https://www.instagram.com/viewsofusc/" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
 									<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
 								</ul>
 							</section>
@@ -94,7 +89,6 @@
 							</ul>
 						</div>
 					</footer>
-
 			</div>
 
 		<!-- Scripts -->
@@ -105,14 +99,26 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/instafeed.min.js"></script>
 			<script type="text/javascript">
+				var loadButton = document.getElementById('load');
 			    var feed = new Instafeed({
 			        get: 'user',
 			        userId: '4209982870',
 			        clientId: '	ff05cc9b77304ac6b03698a9dded29ed',
 			        accessToken: '4209982870.1677ed0.7b05087c4ccf42468538b584d201f436',
 			        resolution: 'standard_resolution',
-			        template: '<article><span class="image"><img src="{{image}}" alt="" /></span><a href="{{link}}"><div class="content"><p class="truncate">{{caption}}</p></div></a></article>'
+			        limit: '12',
+			        template: '<article><span class="image"><img src="{{image}}" alt="" /></span><a href="{{link}}"><div class="content"><p class="truncate">{{caption}}</p></div></a></article>',
+			        after: function() {
+			            if (!this.hasNext()) {
+			                loadButton.setAttribute('disabled', 'disabled');
+			            }
+			        }
 			    });
+
+			    loadButton.addEventListener('click', function() {
+			        feed.next();
+			    });
+
 			    feed.run();
 			</script>
 
