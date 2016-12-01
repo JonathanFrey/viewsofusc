@@ -2721,7 +2721,7 @@
 					line-height: 1.5;
 					margin-top: 0.35em;
 					opacity: 0;
-					overflow: hidden;
+					overflow: scroll;
 				}
 
 					.tiles article > a .content > :last-child {
